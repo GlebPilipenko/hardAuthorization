@@ -11,13 +11,14 @@ dotenv.config();
 const RESERVE_PORT = 5000;
 
 const PORT = process.env.APP_PORT || RESERVE_PORT;
+
 const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 
-app.use('/api', authRouter)
+app.use('/api/auth', authRouter)
 app.use('/api', userRouter)
 
 const startApp = async () => {

@@ -1,8 +1,10 @@
-import {Schema} from 'mongoose';
+import mongoose from 'mongoose';
 
-export const UserSchema = new Schema({
+const UserSchema = new mongoose.Schema({
   email: {type: String, unique: true, required: true},
   password: {type: String, unique: false, required: true},
   isActivated: {type: Boolean, default: false},
   activationLink: {type: String},
 });
+
+export default mongoose.model('UserSchema', UserSchema);
